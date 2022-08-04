@@ -14,13 +14,26 @@ Adobe Primetime is a multiscreen TV platform that helps broadcasters, cable netw
 
 * [Report API](https://adconfigservice-va6.cloud.adobe.io/swagger-ui/index.html#/)
 
+Report APIs examples: https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api-docs.yaml
+
+Json files  https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api.json
+
+
+
+
+
+
+
+
+
+
 
 #### Primetime Subscription APIs
 
 ## Overview
 
 This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
-Report APIs examples: https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api-docs.yaml
+
 
 The Adobe Primetime APIs are a collection of APIs that power Adobe Primetime Products.
 
