@@ -1,30 +1,41 @@
 ---
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/icaraps 
+title: Overview - Adobe Primetime
+description: This is the overview page of Adobe Primetime APIs
+contributors: https://github.com/mgulati1
 ---
 
 <Hero slots="heading, text"/> 
 
-# Adobe Analytics API
+# Adobe Primetime API
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
+Adobe Primetime is a multiscreen TV platform that helps broadcasters, cable networks, and service providers create and monetize engaging, personalized viewing experiences.
 
-<Resources slots="heading, links"/>
+#### Primetime Ad Insertion API
 
-#### Resources
+* [Report API](https://adconfigservice-va6.cloud.adobe.io/swagger-ui/index.html#/)
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+Report APIs examples: https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api-docs.yaml
+
+Json files  https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api.json
+
+
+
+
+
+
+
+
+
+
+
+#### Primetime Subscription APIs
 
 ## Overview
 
 This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
 
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace. 
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+
+The Adobe Primetime APIs are a collection of APIs that power Adobe Primetime Products.
 
 ## Discover 
 
