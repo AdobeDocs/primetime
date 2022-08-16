@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-guides-reporting-api-reportingapi-md",
+    "path": "/guides/reporting_api/reportingapi/",
+    "result": {"pageContext":{"frontmatter":{"title":"Report API Reference","description":"All API calls that you can make using the Report API.","openAPISpec":"/api-docs.yaml"}}},
+    "staticQueryHashes": ["915530536"]}

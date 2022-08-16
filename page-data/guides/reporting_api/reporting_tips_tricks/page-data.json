@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-guides-reporting-api-reporting-tips-tricks-index-md",
     "path": "/guides/reporting_api/reporting_tips_tricks/",
-    "result": {"pageContext":{"frontmatter":{}}},
+    "result": {"pageContext":{"frontmatter":{"title":"Report API","description":"Auditude report API","exl-id":"50eb4869-3765-4591-8c41-794b29d50044"}}},
     "staticQueryHashes": ["915530536"]}
