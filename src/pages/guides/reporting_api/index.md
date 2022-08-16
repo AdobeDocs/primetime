@@ -1,5 +1,5 @@
 ---
-title: Guides - Adobe Analytics
+title: Guides - Adobe Primetime
 description: This is the guides reporting overview page of Adobe Analytics 
 ---
 

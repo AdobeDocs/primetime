@@ -1,11 +1,11 @@
 ---
-title: Guides - Adobe Analytics
+title: Guides - Adobe Primetime
 description: This is the guides overview page of Adobe Analytics 
 ---
 
 # Get Started
 
-To get started with Analytics 2.0 APIs you must first decide whether your application will need
+To get started with Primetime APIs you must first decide whether your application will need
 an OAuth client or a JWT client.
 
 ## Authentication

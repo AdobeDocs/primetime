@@ -1,5 +1,5 @@
 ---
-title: Overview - Adobe Primetime
+title: Primetime APIs
 description: This is the overview page of Adobe Primetime APIs
 contributors: https://github.com/mgulati1
 ---
