@@ -1,0 +1,667 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Primetime Ad Insertion APIs",
+        "description": "\n \n \tThe endpoints described here are routed through Adobe.io.\n\tIn order to use these endpoints you must create a service account that is subscribed to access the Adobe Primetime Ad Insertion API.\n \nYou can generate the Authorization token (also known as access token) by following the steps detailed out in Adobe.io JWT authentication [help-page](https://www.adobe.io/developer-console/docs/guides/authentication/JWT/#authentication-workflow)\n \nTo set the correct values in the request header and to generate Authorization token (using JWT authentication) you will need to know the below configurations for your [Adobe IO account](https://www.adobe.io/developer-console). \n Please get in touch with Primetime Support team to get these values. \n - Technical account id \n - Org id \n - Api_key \n - Client_secret",
+        "contact": {
+            "name": "Primetime Team",
+            "email": "support@adobeprimetime.zendesk.com"
+        },
+        "version": "v1.0"
+    },
+    "servers": [
+        {
+            "url": "https://localhost:8080"
+        }
+    ],
+    "security": [
+        {
+            "BearerToken": []
+        }
+    ],
+    "tags": [
+        {
+            "description": "The Metadata API used to query which metrics are available for queries",
+            "name": "Metadata API"
+        },
+        {
+            "description": "The data API is used to query the telemetry data for a given time range",
+            "name": "Data API"
+        }
+    ],
+    "paths": {
+        "/telemetry/v1/categories": {
+            "get": {
+                "operationId": "categories",
+                "parameters": [
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing IMS Org Id",
+                        "in": "header",
+                        "name": "x-gw-ims-org-id",
+                        "required": true,
+                        "schema": {
+                            "default": "sample@AdobeOrg"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing Api Key used for authentication/authorization.",
+                        "in": "header",
+                        "name": "x-api-key",
+                        "required": true,
+                        "schema": {
+                            "default": "sample_key"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    "traffic",
+                                    "latency",
+                                    "ssai_response",
+                                    "content_response"
+                                ]
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                },
+                "summary": "Get the categories of metrics that are available to be queried",
+                "tags": [
+                    "Metadata API"
+                ]
+            }
+        },
+        "/telemetry/v1/{category}/metrics": {
+            "get": {
+                "operationId": "getMetricsForCategory",
+                "parameters": [
+                    {
+                        "example": "latency",
+                        "in": "path",
+                        "name": "category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing IMS Org Id",
+                        "in": "header",
+                        "name": "x-gw-ims-org-id",
+                        "required": true,
+                        "schema": {
+                            "default": "sample@AdobeOrg"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing Api Key used for authentication/authorization.",
+                        "in": "header",
+                        "name": "x-api-key",
+                        "required": true,
+                        "schema": {
+                            "default": "sample_key"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    "total",
+                                    "ad_call",
+                                    "ad_fetch",
+                                    "content"
+                                ]
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                },
+                "summary": "Get the list of metrics of a given category, that are available to be queried",
+                "tags": [
+                    "Metadata API"
+                ]
+            }
+        },
+        "/telemetry/v1/{category}/{metric}/aggregations": {
+            "get": {
+                "description": "Metric data is aggregated in fixed time windows and only aggregated numbers are returned.",
+                "operationId": "getAggregationsForMetric",
+                "parameters": [
+                    {
+                        "example": "latency",
+                        "in": "path",
+                        "name": "category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "example": "traffic",
+                        "in": "path",
+                        "name": "metric",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing IMS Org Id",
+                        "in": "header",
+                        "name": "x-gw-ims-org-id",
+                        "required": true,
+                        "schema": {
+                            "default": "sample@AdobeOrg"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing Api Key used for authentication/authorization.",
+                        "in": "header",
+                        "name": "x-api-key",
+                        "required": true,
+                        "schema": {
+                            "default": "sample_key"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    "50p",
+                                    "95p"
+                                ]
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                },
+                "summary": "Get the list of aggregations that can be applied on a given metric",
+                "tags": [
+                    "Metadata API"
+                ]
+            }
+        },
+        "/telemetry/v1/{category}/{metric}/dimensions": {
+            "get": {
+                "description": "Dimensions are the fields on which the metric data can be grouped-by, when queried",
+                "operationId": "getDimensionsForMetric",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "metric",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing IMS Org Id",
+                        "in": "header",
+                        "name": "x-gw-ims-org-id",
+                        "required": true,
+                        "schema": {
+                            "default": "sample@AdobeOrg"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing Api Key used for authentication/authorization.",
+                        "in": "header",
+                        "name": "x-api-key",
+                        "required": true,
+                        "schema": {
+                            "default": "sample_key"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "example": [
+                                    "region",
+                                    "zone",
+                                    "request_type",
+                                    "content_type",
+                                    "domain",
+                                    "app",
+                                    "channel",
+                                    "device_type",
+                                    "device_os"
+                                ]
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                },
+                "summary": "Get the list of dimensions for a given metric, that are available to be queried",
+                "tags": [
+                    "Metadata API"
+                ]
+            }
+        },
+        "/telemetry/v1/{category}/{metric}/{aggregation}/timeseries": {
+            "get": {
+                "description": "The data is aggregated, filtered and grouped-by as specified in the parameters.",
+                "operationId": "getTimeseries",
+                "parameters": [
+                    {
+                        "description": "Category of the metric being queried. Refer /categories ",
+                        "example": "latency",
+                        "in": "path",
+                        "name": "category",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Metric being queried. Refer /{category}/metrics ",
+                        "example": "content",
+                        "in": "path",
+                        "name": "metric",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Aggregation to be applied on the metric being queried. Refer /{category}/{metric}/aggregations ",
+                        "example": "95p",
+                        "in": "path",
+                        "name": "aggregation",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Start time of the target time range for query, in unix epoch format in milliseconds",
+                        "example": 1651432066000,
+                        "in": "query",
+                        "name": "start_time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "End time of the target time range for query, in unix epoch format in milliseconds",
+                        "example": 1651432076000,
+                        "in": "query",
+                        "name": "end_time",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Comma separated list of fields to group-by the data.",
+                        "example": "content_type, zone",
+                        "in": "query",
+                        "name": "group_by",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "A boolean expression to filter the data. Only the dimensions available for a metric can be used in the filter expression.",
+                        "example": "device_os:\"iOS\" AND region:or",
+                        "in": "query",
+                        "name": "filter_expr",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "description": "Fixed time window size to be used for aggregation of the metric queried",
+                        "example": "5m",
+                        "in": "query",
+                        "name": "aggregation_window",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "If set true, the API would use a maximum limit on the number of data points returned in a single response",
+                        "example": true,
+                        "in": "query",
+                        "name": "paginated",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "false"
+                        }
+                    },
+                    {
+                        "description": "[Applicable only if paginated=true] Maximum number of data points to be retuned in a single query. ",
+                        "example": 100,
+                        "in": "query",
+                        "name": "page_size",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "[Applicable only if paginated=true] Start index of the data points to be returned for current query.",
+                        "example": 101,
+                        "in": "query",
+                        "name": "last_returned_key",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing IMS Org Id",
+                        "in": "header",
+                        "name": "x-gw-ims-org-id",
+                        "required": true,
+                        "schema": {
+                            "default": "sample@AdobeOrg"
+                        }
+                    },
+                    {
+                        "allowEmptyValue": false,
+                        "description": "Header containing Api Key used for authentication/authorization.",
+                        "in": "header",
+                        "name": "x-api-key",
+                        "required": true,
+                        "schema": {
+                            "default": "sample_key"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "category": "latency",
+                                    "metric": "total",
+                                    "aggregation": "95p",
+                                    "startTime": 1622863331000,
+                                    "endTime": 1622866714000,
+                                    "aggregateWindow": "1m",
+                                    "filterExpr": "region:east",
+                                    "groupBy": "zone",
+                                    "dataPoints": 3,
+                                    "data": [
+                                        {
+                                            "100015": 3.0,
+                                            "timestamp": "1622863320000"
+                                        },
+                                        {
+                                            "100016": 2.0,
+                                            "timestamp": "1622866020000"
+                                        },
+                                        {
+                                            "10007": 2.0,
+                                            "timestamp": "1622866080000"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "description": "Success"
+                    },
+                    "400": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        },
+                        "description": "Internal Server Error"
+                    }
+                },
+                "summary": "Get the timeseries data of a given metric from a given time-range",
+                "tags": [
+                    "Data API"
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ErrorMessage": {
+                "type": "object",
+                "properties": {
+                    "errorMessages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "BearerToken": {
+                "type": "http",
+                "description": "Enter your API token below. Visit [our documentation page](https://developer.adobe.com/developer-console/docs/guides/authentication/ServiceAccountIntegration/) for instructions on how to get an API token.",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
