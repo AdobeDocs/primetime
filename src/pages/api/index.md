@@ -1,5 +1,5 @@
 ---
-title: Adobe Analytics API Spec 2.0
-description: Adobe Analytics API Spec 2.0
-openAPISpec: https://raw.githubusercontent.com/AdobeDocs/analytics-apis/main/src/swagger_2.0.json  
+title: Adobe Primetime Swaggered API Spec
+description: Adobe Primetime Swaggered API Spec
+frameSrc: https://adconfigservice-va6.cloud.adobe.io/swagger-ui/index.html#/
 --- 

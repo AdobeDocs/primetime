@@ -14,7 +14,7 @@ Adobe Primetime is a multiscreen TV platform that helps broadcasters, cable netw
 
 #### Resources
 
-* [Quick start guide](guides/index.md)
+* [Quick start guide](guides/reporting_api/reporting_tips_tricks/index.md)
 * [Endpoint guides](guides/endpoints/index.md)
 * [API reference](apis/index.md)
 * [Github repository](https://github.com/AdobeDocs/analytics-2.0-apis)
@@ -26,14 +26,13 @@ The Adobe Primetime APIs are a collection of APIs that power Adobe Primetime Pro
 
 ### Primetime Ad Insertion APIs
 
-* [Report API](https://adconfigservice-va6.cloud.adobe.io/swagger-ui/index.html#/)
+* [Report APIs](guides/reporting_api/reportingapi.md)
 
-Report APIs examples: https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api-docs.yaml
-
-Json files  https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pages/api/api.json
-
+* [Telemetry APIs](guides/telemetry/telemetry.md)
 
 ### Primetime Subscription APIs
+
+* [Adobe Primetime Authentication](https://tve.helpdocsonline.com/rest-api-overview)
 
 ## Discover 
 
@@ -41,41 +40,53 @@ Json files  https://github.com/AdobeDocs/primetime/tree/minireportapitest/src/pa
 
 ### Get Started
 
-[Quickstart Guide](guides/)
+**Quickstart Guide**
+
+<!-- [Quickstart Guide](guides/) -->
     
-Get started with the Adobe Analytics APIs.
+Get started with the Adobe Primetime APIs.
 
 <DiscoverBlock slots="heading, link, text"/> 
 
 ### Guides
 
-[Calculated Metrics API](guides/calculated_metrics_api/) 
+**Calculated Metrics API**
+
+<!-- [Calculated Metrics API](guides/calculated_metrics_api/) -->
      
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
+Returns information on the user's company that is necessary for making other API calls.
 
 <DiscoverBlock slots="link, text"/>
 
-[Segments API](guides/segments_api/) 
+**Segments API**
+
+<!-- [Segments API](guides/segments_api/) -->
 
 Provides configuration guidance and best practices for the /segments endpoint.
 
 <DiscoverBlock slots="link, text"/>
 
-[Reporting Guide API](guides/reporting_api/)
+**Reporting Guide API**
+
+<!-- [Reporting Guide API](guides/reporting_api/) -->
 
 Provides configuration guidance and best practices for the /reports endpoint.
 
 <DiscoverBlock slots="link, text"/>
 
-[Migrating from 1.4 to 2.0](guides/migrating/)
+Migrating from 1.4 to 2.0
 
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
+<!-- [Migrating from 1.4 to 2.0](guides/migrating/) -->
+
+For help migrating from the 1.4 versions of the API to the newer and more capable /reports API.   
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
 ### API References
 
-[Try the API](api/) 
+[Try the API](api/index.md)
+[Report API] (api/reportapi.md)
+[Ad Rules API](api/adrules.md)
 
 Try the Adobe Primetime APIs with Swagger UI. Explore, make calls, with full endpoint descriptions.
 
