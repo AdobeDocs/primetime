@@ -1,7 +1,8 @@
 ---
 title: Primetime APIs
 description: This is the overview page of Adobe Primetime APIs
-contributors: https://github.com/mgulati1
+contributors: 
+  - https://github.com/mgulati1
 ---
 
 <Hero slots="heading, text"/> 
