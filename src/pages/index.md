@@ -16,9 +16,10 @@ Adobe Primetime is a multiscreen TV platform that helps broadcasters, cable netw
 #### Resources
 
 * [Quick start guide](guides/reporting_api/reporting_tips_tricks/index.md)
-* [Endpoint guides](guides/endpoints/index.md)
+* [Endpoint guides](guides/index.md)
 * [API reference](apis/index.md)
 * [Github repository](https://github.com/AdobeDocs/analytics-2.0-apis)
+
 ## Overview
 
 This documentation provides instructions for Adobe Primetime APIs. This user guide assumes that you have an intermediate understanding of Adobe Primetime. See the documentation for [Adobe Primetime](https://experienceleague.adobe.com/docs/primetime.html).
@@ -85,9 +86,9 @@ For help migrating from the 1.4 versions of the API to the newer and more capabl
 
 ### API References
 
-[Try the API](api/index.md)
-[Report API] (api/reportapi.md)
-[Ad Rules API](api/adrules.md)
+* [Try the API](api/index.md)
+* [Report API] (api/reportapi.md)
+* [Ad Rules API](api/adrules.md)
 
 Try the Adobe Primetime APIs with Swagger UI. Explore, make calls, with full endpoint descriptions.
 
