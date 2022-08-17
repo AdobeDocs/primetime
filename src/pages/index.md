@@ -87,7 +87,7 @@ For help migrating from the 1.4 versions of the API to the newer and more capabl
 ### API References
 
 * [Try the API](api/index.md)
-* [Report API] (api/reportapi.md)
+* [Report API](api/reportapi.md)
 * [Ad Rules API](api/adrules.md)
 
 Try the Adobe Primetime APIs with Swagger UI. Explore, make calls, with full endpoint descriptions.
