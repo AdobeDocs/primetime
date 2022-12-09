@@ -1,0 +1,5 @@
+---
+title: Adobe Analytics API Spec 1.4
+description: Adobe Analytics API Spec 1.4
+openAPISpec: https://raw.githubusercontent.com/AdobeDocs/primetime/authAPI/src/pages/guides/oclient.json
+--- 

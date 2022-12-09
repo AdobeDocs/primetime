@@ -34,7 +34,7 @@ The Adobe Primetime APIs are a collection of APIs that power Adobe Primetime Pro
 
 ### Primetime Subscription APIs
 
-* [Adobe Primetime Authentication](https://tve.helpdocsonline.com/rest-api-overview)
+* [Adobe Primetime Authentication](https://github.com/AdobeDocs/primetime/blob/authAPI/src/pages/api/oclient.md)
 
 ## Discover 
 
