@@ -1,0 +1,358 @@
+{
+  "endpoints": [
+    {
+      "name": "Dynamic Client Registration",
+      "methods": [
+        {
+          "MethodName": "Client Registration",
+          "Synopsis": "This method registers a client with the authorization server. It creates a client application.",
+          "HTTPMethod": "POST",
+          "URI": "/client/register",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "software_statement",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The software_statement received at application provisioning from the TVE Dashboard."
+            },
+            {
+              "Name": "redirect_uri",
+              "Required": "Y",
+              "Type": "URI",
+              "Description": "The uri that the application wants to use for ending the authentication flow."
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "Y",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "Y",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/json"
+              ],
+              "EnumeratedDescription": {
+                "application/json": "Format the response as JSON"
+              }
+            }
+          ]
+        },
+        {
+          "MethodName": "Create access token",
+          "Synopsis": "This method allows you to retrieve an Access Token.",
+          "HTTPMethod": "POST",
+          "URI": "/client/token",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "client_id",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The client id received in the client registration process."
+            },
+            {
+              "Name": "client_secret",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The client secret received in the client registration process."
+            },
+            {
+              "Name": "grant_type",
+              "Required": "Y",
+              "Default": "client_credentials",
+              "Type": "string",
+              "Description": "The grant type received in the client registration process."
+            },
+            {
+              "Name": "refresh_token",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Only used with grant type refresh."
+            },
+            {
+              "Name": "code",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Only used with grant type authorization_code."
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "N",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "N",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/x-www-form-urlencoded",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/x-www-form-urlencoded"
+              ],
+              "EnumeratedDescription": {
+                "application/x-www-form-urlencoded": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Application Management",
+      "methods": [
+        {
+          "MethodName": "Generate Programmer custom scheme",
+          "Synopsis": "This method creates a custom scheme at Programmer level.",
+          "HTTPMethod": "POST",
+          "URI": "/schemes/programmer/:programmer",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "programmer",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The Programmer Id"
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "Y",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "Y",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/json"
+              ],
+              "EnumeratedDescription": {
+                "application/json": "Format the response as JSON"
+              }
+            }
+          ]
+        },
+        {
+          "MethodName": "Retrieve Programmer's custom schemes",
+          "Synopsis": "This method allows retrieval of the custom schemes at Programmer level.",
+          "HTTPMethod": "GET",
+          "URI": "/schemes/programmer/:programmer",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "programmer",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The Programmer Id"
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "Y",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "Y",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/json",
+                "application/xml"
+              ],
+              "EnumeratedDescription": {
+                "application/json": "Format the response as JSON",
+                "application/xml": "Format the response as XML"
+              }
+            }
+          ]
+        },
+        {
+          "MethodName": "Generate ServiceProvider custom scheme",
+          "Synopsis": "This method creates a custom scheme at ServiceProvider level.",
+          "HTTPMethod": "POST",
+          "URI": "/schemes/serviceProvider/:serviceProvider",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "serviceProvider",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The ServiceProvider Id"
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "N",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "N",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/json",
+                "application/xml"
+              ],
+              "EnumeratedDescription": {
+                "application/json": "Format the response as JSON",
+                "application/xml": "Format the response as XML"
+              }
+            }
+          ]
+        },
+        {
+          "MethodName": "Retrieve ServiceProvider's custom schemes",
+          "Synopsis": "This method allows retrieval of the custom schemes at ServiceProvider level.",
+          "HTTPMethod": "GET",
+          "URI": "/schemes/serviceProvider/:serviceProvider",
+          "RequiresOAuth": "N",
+          "parameters": [
+            {
+              "Name": "serviceProvider",
+              "Required": "Y",
+              "Type": "string",
+              "Description": "The ServiceProvider Id"
+            },
+            {
+              "Name": "User-Agent",
+              "Required": "N",
+              "Default": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The user agent to determine the platform."
+            },
+            {
+              "Name": "X-Device-Info",
+              "Required": "N",
+              "Default": "ew0KICAibW9kZWwiOiAiVFYiLA0KICAidmVuZG9yIjogIkFwcGxlIiwNCiAgIm1hbnVmYWN0dXJlciI6ICJBcHBsZSIsDQogICJvc05hbWUiOiAidHZPUyIsDQogICJvc1ZlbmRvciI6ICJBcHBsZSIsDQogICJvc1ZlcnNpb24iOiAiMTAuMiIsDQogICJicm93c2VyVmVuZG9yIjogIkFwcGxlIiwNCiAgImJyb3dzZXJOYW1lIjogIlNhZmFyaSINCn0",
+              "Location": "header",
+              "Type": "string",
+              "Description": "The device information as defined in Passing Client Information (https://wiki.corp.adobe.com/display/tve/Passing+Client+Information)"
+            },
+            {
+              "Name": "ap_vi",
+              "Required": "N",
+              "Type": "string",
+              "Description": "Visitor ID."
+            },
+            {
+              "Name": "Content-Type",
+              "Required": "Y",
+              "Default": "application/json",
+              "Location": "header",
+              "Type": "enumerated",
+              "Description": "",
+              "EnumeratedList": [
+                "application/json",
+                "application/xml"
+              ],
+              "EnumeratedDescription": {
+                "application/json": "Format the response as JSON",
+                "application/xml": "Format the response as XML"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
