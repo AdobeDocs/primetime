@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-guides-authn-oclient-md",
+    "path": "/guides/authn/oclient/",
+    "result": {"pageContext":{"frontmatter":{"title":"Adobe Primetime Authentication","description":"Adobe Primetime Authentication","openAPISpec":"https://raw.githubusercontent.com/AdobeDocs/primetime/authAPI/src/pages/guides/oclient.json"}}},
+    "staticQueryHashes": ["915530536"]}
